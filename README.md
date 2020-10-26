@@ -1,18 +1,30 @@
 # Info
 
 root@loadbalancer named]# nsupdate
+
 > update add 55.2.168.192.in-addr.arpa 55 IN PTR test.woodez.net.
+
+
+
 > send
+
 > quit
+
 [root@loadbalancer named]# nslookup 192.168.2.55
+
 55.2.168.192.in-addr.arpa	name = test.woodez.net.
 
 
 [root@loadbalancer named]# more /etc/nsupdate 
+
 update delete loadbalancer.woodez.net A
+
 update delete 213 PTR
+
 update add loadbalancer.woodez.net 21600 IN A 192.168.2.213
+
 update add 213 21600 IN PTR loadbalancer01.woodez.net
+
 
 
 http://wiki.bernardino.org/index.php/Update_DNS_with_nsupdate
